@@ -1,0 +1,173 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #212121;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: system-ui, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 20px 40px;
+    height: 100vh;
+}
+
+.game {
+    width: 360px;
+    height: 360px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.item {
+    background-color: rgba(255, 255, 255, .6);
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: 0.5s;
+    transform: rotateY(180deg);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.2),
+        inset 0 0 15px rgba(255, 255, 255, .8),
+        inset 0 0 25px rgba(255, 255, 255, .8);
+}
+
+.item.OpenBox {
+    transform: rotateY(0deg);
+}
+
+.item.OpenBox.shake {
+    animation: shake ease 2.5s;
+}
+
+@keyframes shake {
+
+    0%,
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(-5px);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+.item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #FFC374;
+    transition: 0.5s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.OpenBox::after,
+.boxMatch::after {
+    transform: rotateY(180deg);
+}
+
+.btns {
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.button {
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.2),
+        inset 0 0 15px rgba(255, 255, 255, .3),
+        inset 0 0 25px rgba(255, 255, 255, .3);
+
+}
+
+.button i {
+    font-size: 24px;
+    color: #F1F1F1;
+}
+
+.button:hover {
+    opacity: 0.7;
+    scale: 0.95;
+}
+
+.meme {
+    color: #F1F1F1;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0px;
+    line-height: 28px;
+    font-weight: 100;
+    font-size: 32px;
+}
+.meme::after {
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(241, 241, 241, 0.3);
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    /* Stack card layout vertically */
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+#timer {
+    font-size: 2em;
+    font-weight: 100;
+    margin-top: 20px;
+    color: #F1F1F1;
+}

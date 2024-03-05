@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="sweetalert2.min.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js
+    "></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Memory Game</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="game-container">
+            <div id="timer">00:01</div>
+        </div>
+        <p class="meme"> memory <br /> game</p>
+        <div class="game"></div>
+        <audio autoplay loop id="audio" src="./Audio/Hans Zimmer - Interstellar Main.m4a"></audio>
+        <div class="btns">
+            <div class="button" title="Mute" id="music"><i class='bx bx-volume-full'></i></div>
+            <div class="button" title="Change Music" id="playButton"><i class='bx bxs-music'></i></div>
+            <div class="button" title="Reset Game" onclick="window.location.reload()"><i class='bx bx-reset'></i></div>
+        </div>
+    </div>
+
+
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js
+    "></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
